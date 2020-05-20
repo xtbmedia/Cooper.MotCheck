@@ -1,12 +1,11 @@
 using Cooper.MotCheck.Services;
 using Cooper.MotCheck.Services.Implementation;
+using Cooper.MotCheck.Services.Implementation.Mappers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Net;
 
 namespace Cooper.MotCheck.Ui
 {
@@ -33,7 +32,8 @@ namespace Cooper.MotCheck.Ui
             }
 #endif
 
-        services.AddTransient<IMotCheckService, MotCheckService>();
+            services.AddTransient<IMotCheckService, MockMotCheckService>();
+            services.AddSingleton<MotCheckServiceMapper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

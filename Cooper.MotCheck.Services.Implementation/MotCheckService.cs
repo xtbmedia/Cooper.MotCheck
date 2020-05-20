@@ -1,68 +1,58 @@
 ﻿using Cooper.MotCheck.Models;
 using Cooper.MotCheck.Models.Enumeration;
+using Cooper.MotCheck.Services.Dto;
+using Cooper.MotCheck.Services.Implementation.Mappers;
+using Newtonsoft.Json;
 using System;
-using System.Linq;
-using System.Security.Cryptography;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Cooper.MotCheck.Services.Implementation
 {
     public class MotCheckService : IMotCheckService
     {
+        private readonly string serviceEndpoint = "https://service";
+        private readonly IHttpService httpService;
+        private readonly MotCheckServiceMapper mapper;
+
+        public MotCheckService(IHttpService httpService, MotCheckServiceMapper mapper)
+        {
+            this.httpService = httpService;
+            this.mapper = mapper;
+        }
+
+#pragma warning disable 168
         public async Task<MotCheckResponse> CheckVehicleMot(string registration)
         {
             try
             {
-                await Task.Delay(1000);
-                var flag = registration.Substring(0, 1);
+                var uri = new Uri($"{serviceEndpoint}/mot-status/{registration}");
+                var response = await httpService.GetAsync(uri, CancellationToken.None);
 
-                if (string.Compare(flag, "E", StringComparison.OrdinalIgnoreCase) == 0)
-                    return ExpiredResponse(registration);
+                response.EnsureSuccessStatusCode();
 
-                if (string.Compare(flag, "R", StringComparison.OrdinalIgnoreCase) == 0)
-                    return NotRequiredResponse(registration);
+                var content = await response.Content.ReadAsStringAsync();
+                var dto = JsonConvert.DeserializeObject<VehicleMotStatus>(content);
+                var result = mapper.ToMotCheckResponse(dto);
 
-                if (string.Compare(flag, "F", StringComparison.OrdinalIgnoreCase) == 0)
-                    return NotFoundResponse(registration);
-
-                return ValidResponse(registration);
+                return result;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                // Log failure
                 return NotFoundResponse(registration);
             }
+
         }
-
-        private MotCheckResponse ValidResponse(string registration) => new MotCheckResponse
-        {
-            Registration = registration,
-            Manufacturer = "Mini",
-            Model = "Cooper JCW",
-            MotExpiryDate = DateTime.Today.AddMonths(8).AddDays(9),
-            Status = MotStatus.Valid
-        };
-
-        private MotCheckResponse ExpiredResponse(string registration) => new MotCheckResponse
-        {
-            Registration = registration,
-            Manufacturer = "Mini",
-            Model = "Cooper JCW",
-            MotExpiryDate = DateTime.Today.AddMonths(-8).AddDays(9),
-            Status = MotStatus.Expired
-        };
-
-        private MotCheckResponse NotRequiredResponse(string registration) => new MotCheckResponse
-        {
-            Registration = registration,
-            Manufacturer = "Mini",
-            Model = "Cooper JCW",
-            Status = MotStatus.NotRequired
-        };
+#pragma warning restore
 
         private MotCheckResponse NotFoundResponse(string registration) => new MotCheckResponse
         {
             Registration = registration,
             Status = MotStatus.NotFound
         };
+
     }
 }

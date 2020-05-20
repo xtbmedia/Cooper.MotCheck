@@ -13,10 +13,5 @@ namespace Cooper.MotCheck.Models
         [DisplayName("Expiry Date")]
         public DateTime MotExpiryDate { get; set; }
         public MotStatus Status { get; set; }
-
-        public MotCheckResponse()
-        {
-            Status = MotStatus.Expired;
-        }
     }
 }
