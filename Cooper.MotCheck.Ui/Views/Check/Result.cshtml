@@ -1,0 +1,18 @@
+﻿@model CheckResultViewModel
+
+@{
+    ViewData["Title"] = "MOT Check Results";
+}
+
+<h1>MOT Check Results</h1>
+
+<h2>Results for @Model.Result.Registration</h2>
+
+@(await @Html.PartialAsync("_" + Model.Result.Status.ToString(), Model.Result))
+
+<h3>Next Steps</h3>
+@if (Model.Result.Status == MotStatus.Valid)
+{
+    <button class="btn btn-lg btn-block btn-primary">Email an MOT reminder</button>
+}
+<a class="btn btn-lg btn-block btn-outline-secondary" asp-action="index" asp-controller="home">Check another vehicle</a>

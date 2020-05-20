@@ -1,8 +1,20 @@
-﻿@{
+﻿@model Cooper.MotCheck.Ui.Models.MotCheckRequest;
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+    <h1>
+        Check the MOT status of a vehicle
+    </h1>
+    <p class="lead">Enter a vehicle’s details to see whether it has an MOT certificate and when it runs out.</p>
+    <form asp-action="result" asp-controller="check" class="needs-validation" novalidate>
+        <div class="form-group">
+            <label for="registration">Registration number (number plate)</label>
+            <input class="form-control form-control-lg" asp-for="Registration" aria-describedby="registrationHelp" placeholder="NU17 REG" required>
+            <small id="registrationHelp" class="form-text text-muted">Enter the registration number of the vehicle</small>
+            <small class="invalid-feedback"><span asp-validation-for="Registration"></span> </small>
+        </div>
+        <button type="submit" class="btn btn-lg btn-block btn-primary">Check MOT Status</button>
+    </form>
 </div>
