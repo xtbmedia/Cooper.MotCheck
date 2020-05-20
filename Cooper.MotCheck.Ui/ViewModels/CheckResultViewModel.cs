@@ -1,4 +1,4 @@
-﻿using Cooper.MotCheck.Ui.Models;
+﻿using Cooper.MotCheck.Models;
 
 namespace Cooper.MotCheck.Ui.ViewModels
 {

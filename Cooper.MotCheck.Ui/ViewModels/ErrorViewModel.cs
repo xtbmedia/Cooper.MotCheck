@@ -1,4 +1,4 @@
-namespace Cooper.MotCheck.Ui.Models
+namespace Cooper.MotCheck.Ui.ViewModels
 {
     public class ErrorViewModel
     {

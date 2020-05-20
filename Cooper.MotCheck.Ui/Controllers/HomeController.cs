@@ -1,4 +1,4 @@
-﻿using Cooper.MotCheck.Ui.Models;
+﻿using Cooper.MotCheck.Ui.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;

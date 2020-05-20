@@ -8,7 +8,9 @@
 
 <h2>Results for @Model.Result.Registration</h2>
 
-@(await @Html.PartialAsync("_" + Model.Result.Status.ToString(), Model.Result))
+<div class="p-3">
+    @(await @Html.PartialAsync("_" + Model.Result.Status.ToString(), Model.Result))
+</div>
 
 <h3>Next Steps</h3>
 @if (Model.Result.Status == MotStatus.Valid)

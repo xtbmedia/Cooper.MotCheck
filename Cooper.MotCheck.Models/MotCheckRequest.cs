@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Cooper.MotCheck.Ui.Models
+namespace Cooper.MotCheck.Models
 {
     public class MotCheckRequest
     {

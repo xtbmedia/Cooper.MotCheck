@@ -1,24 +1,39 @@
+using Cooper.MotCheck.Services;
+using Cooper.MotCheck.Services.Implementation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Net;
 
 namespace Cooper.MotCheck.Ui
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment hostEnvironment)
         {
             Configuration = configuration;
+            this.hostEnvironment = hostEnvironment;
         }
 
         public IConfiguration Configuration { get; }
+        private IWebHostEnvironment hostEnvironment;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            var mvcBuilder = services.AddControllersWithViews();
+
+#if DEBUG
+            if (hostEnvironment.IsDevelopment())
+            {
+                mvcBuilder.AddRazorRuntimeCompilation();
+            }
+#endif
+
+        services.AddTransient<IMotCheckService, MotCheckService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

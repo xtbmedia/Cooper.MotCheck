@@ -1,4 +1,4 @@
-﻿namespace Cooper.MotCheck.Ui.Enumeration
+﻿namespace Cooper.MotCheck.Models.Enumeration
 {
     public enum MotStatus
     {

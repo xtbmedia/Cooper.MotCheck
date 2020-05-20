@@ -1,14 +1,27 @@
-﻿
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model MotCheckResponse
 
 <div class="card border-danger">
     <div class="card-header">Expired</div>
-    <div class="card-body text-danger">
-        <div class="card-text">The MOT for this vehicle has expired</div>
+    <div class="card-body">
+        <div class="card-text">
+            <strong class=" text-danger">The MOT for this vehicle has expired.</strong>
         <ul>
-            <li>Call to action</li>
+            <li>Contact *** to book an MOT</li>
         </ul>
+        </div>
     </div>
+
+    <dl class="row">
+        <dt class="col-sm-6"><label asp-for="Registration"></label></dt>
+        <dd class="col-sm-6">@Html.DisplayFor(m => m.Registration)</dd>
+        <dt class="col-sm-6"><label asp-for="Manufacturer"></label></dt>
+        <dd class="col-sm-6">@Html.DisplayFor(m => m.Manufacturer)</dd>
+        <dt class="col-sm-6"><label asp-for="Model"></label></dt>
+        <dd class="col-sm-6">@Html.DisplayFor(m => m.Model)</dd>
+        <dt class="col-sm-6"><label asp-for="Status"></label></dt>
+        <dd class="col-sm-6 text-danger">@Html.DisplayFor(m => m.Status)</dd>
+        <dt class="col-sm-6"><label asp-for="MotExpiryDate"></label></dt>
+        <dd class="col-sm-6 text-danger">@Html.DisplayFor(m => m.MotExpiryDate)</dd>
+    </dl>
+
 </div>

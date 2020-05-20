@@ -1,5 +1,6 @@
 ﻿@model MotCheckResponse
 
+
     <dl class="row">
         <dt class="col-sm-6"><label asp-for="Registration"></label></dt>
         <dd class="col-sm-6">@Html.DisplayFor(m => m.Registration)</dd>
@@ -8,7 +9,6 @@
         <dt class="col-sm-6"><label asp-for="Model"></label></dt>
         <dd class="col-sm-6">@Html.DisplayFor(m => m.Model)</dd>
         <dt class="col-sm-6"><label asp-for="Status"></label></dt>
-        <dd class="col-sm-6 text-success">@Html.DisplayFor(m => m.Status)</dd>
-        <dt class="col-sm-6"><label asp-for="MotExpiryDate"></label></dt>
-        <dd class="col-sm-6">@Html.DisplayFor(m => m.MotExpiryDate)</dd>
+        <dd class="col-sm-6">This vehicle does not require an MOT. This is normally becasue the vehicle was first registered less than 3 years ago.</dd>
     </dl>
+
