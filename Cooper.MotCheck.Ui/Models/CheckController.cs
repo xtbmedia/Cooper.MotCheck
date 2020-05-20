@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Cooper.MotCheck.Ui.ViewModels;
+﻿using Cooper.MotCheck.Ui.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cooper.MotCheck.Ui.Models

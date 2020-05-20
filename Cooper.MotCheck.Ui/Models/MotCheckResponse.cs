@@ -1,8 +1,5 @@
 ﻿using Cooper.MotCheck.Ui.Enumeration;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Cooper.MotCheck.Ui.Models
 {

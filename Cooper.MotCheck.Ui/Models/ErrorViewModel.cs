@@ -1,5 +1,3 @@
-using System;
-
 namespace Cooper.MotCheck.Ui.Models
 {
     public class ErrorViewModel
