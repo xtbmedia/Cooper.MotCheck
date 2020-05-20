@@ -16,8 +16,6 @@
             <div class="site-content">
                 <div class="container">
                     @RenderBody()
-                    <hr />
-                    <div id="root"></div>
                 </div>
             </div>
         </div>
@@ -31,13 +29,10 @@
         </footer>
     </div>
 
-    <div class="layout-container">
-    </div>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/lib/dist/index.js" asp-append-version="true"></script>
+    <script src="~/lib/app/app.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

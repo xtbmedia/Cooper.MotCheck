@@ -15,6 +15,6 @@
 <h3>Next Steps</h3>
 @if (Model.Result.Status == MotStatus.Valid)
 {
-    <button class="btn btn-lg btn-block btn-primary">Email an MOT reminder</button>
+    <a asp-action="register" asp-controller="reminders" asp-route-registration="@Model.Result.Registration" asp-route-motExpiryDate="@Model.Result.MotExpiryDate.ToString("s")" class="btn btn-lg btn-block btn-primary">Register for an MOT reminder</a>
 }
 <a class="btn btn-lg btn-block btn-outline-secondary" asp-action="index" asp-controller="home">Check another vehicle</a>
