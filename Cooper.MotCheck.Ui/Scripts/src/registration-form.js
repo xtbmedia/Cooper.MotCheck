@@ -64,15 +64,17 @@ class RegistrationForm extends React.Component {
         const fetchOptions = {
             method: 'POST',
             body: JSON.stringify({
-                email: this.state.email,
                 registration: this.props.registration,
-                motExpiryDate: this.props.motExpiryDate
+                manufacturer: this.props.manufacturer,
+                model: this.props.model,
+                motExpiryDate: this.props.motExpiryDate,
+                email: this.state.email
             }),
             headers: {
                 'Content-Type': 'application/json',
             }
         };
-        const response = await fetch('/reminders/registrations', fetchOptions);
+        const response = await fetch('/api/reminders', fetchOptions);
         const content = await response.json();
         this.setState({ reminderId: content.reminderId });
 
@@ -92,6 +94,6 @@ class RegistrationForm extends React.Component {
 const root = document.querySelector(".registration-form");
 if (root !== null) {
     ReactDOM.render(<React.StrictMode>
-        <RegistrationForm registration={root.dataset.registration} motExpiryDate={root.dataset.motExpiryDate} />
+        <RegistrationForm registration={root.dataset.registration} motExpiryDate={root.dataset.motExpiryDate} manufacturer={root.dataset.manufacturer} model={root.dataset.model} />
     </React.StrictMode>, root);
 }

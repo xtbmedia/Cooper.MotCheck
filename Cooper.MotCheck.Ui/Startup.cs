@@ -1,4 +1,6 @@
 using Cooper.MotCheck.Services;
+using Cooper.MotCheck.Services.Data.Implementation;
+using Cooper.MotCheck.Services.Data.Implementation.Contexts;
 using Cooper.MotCheck.Services.Implementation;
 using Cooper.MotCheck.Services.Implementation.Mappers;
 using Microsoft.AspNetCore.Builder;
@@ -34,6 +36,8 @@ namespace Cooper.MotCheck.Ui
 
             services.AddTransient<IMotCheckService, MockMotCheckService>();
             services.AddSingleton<MotCheckServiceMapper>();
+            services.AddTransient<IReminderService, ReminderService>();
+            services.AddTransient<RemindersContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

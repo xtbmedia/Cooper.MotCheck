@@ -3,40 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Cooper.MotCheck.Models;
-using Cooper.MotCheck.Ui.ViewModels;
+using Cooper.MotCheck.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cooper.MotCheck.Ui.Controllers
 {
-    public class RemindersController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class RemindersController : ControllerBase
     {
-        public IActionResult Register(string registration, DateTime motExpiryDate)
-        {
-            var viewModel = new RemindersRegistrationViewModel
-            {
-                Registration = registration,
-                MotExpiryDate = motExpiryDate.Date
-            };
+        private readonly IReminderService reminderService;
 
-            return View(viewModel);
+        public RemindersController(IReminderService reminderService)
+        {
+            this.reminderService = reminderService;
         }
 
         [HttpPost]
-        public async Task<IActionResult> Registrations([FromBody]ReminderRequest model)
+        public async Task<IActionResult> Post(ReminderRequest model)
         {
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            await Task.Delay(2500);
-
-            var reminderId = System.Guid.NewGuid().ToString();
-            return Created($"/registrations/{reminderId}", new
+            var reminderId = await reminderService.CreateMotReminder(model);
+            return CreatedAtAction("get", reminderId, new
             {
                 ReminderId = System.Guid.NewGuid().ToString()
             });
 
         }
-
     }
 }

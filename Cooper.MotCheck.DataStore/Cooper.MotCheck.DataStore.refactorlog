@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="17e32ddc-329c-4950-897b-f8f6216004d5" ChangeDateTime="05/20/2020 20:06:32">
+    <Property Name="ElementName" Value="[dbo].[Reminders].[Make]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Reminders]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Manufacturer" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="29c8c491-f47d-4535-8c24-31ecde5d28c5" ChangeDateTime="05/20/2020 20:08:32">
+    <Property Name="ElementName" Value="[dbo].[Reminders].[ReminderDue]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Reminders]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ReminderDueDate" />
+  </Operation>
+</Operations>

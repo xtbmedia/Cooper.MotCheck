@@ -177,15 +177,17 @@ class RegistrationForm extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Comp
     const fetchOptions = {
       method: 'POST',
       body: JSON.stringify({
-        email: this.state.email,
         registration: this.props.registration,
-        motExpiryDate: this.props.motExpiryDate
+        manufacturer: this.props.manufacturer,
+        model: this.props.model,
+        motExpiryDate: this.props.motExpiryDate,
+        email: this.state.email
       }),
       headers: {
         'Content-Type': 'application/json'
       }
     };
-    const response = await fetch('/reminders/registrations', fetchOptions);
+    const response = await fetch('/api/reminders', fetchOptions);
     const content = await response.json();
     this.setState({
       reminderId: content.reminderId
@@ -209,7 +211,9 @@ const root = document.querySelector(".registration-form");
 if (root !== null) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.StrictMode, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(RegistrationForm, {
     registration: root.dataset.registration,
-    motExpiryDate: root.dataset.motExpiryDate
+    motExpiryDate: root.dataset.motExpiryDate,
+    manufacturer: root.dataset.manufacturer,
+    model: root.dataset.model
   })), root);
 }
 

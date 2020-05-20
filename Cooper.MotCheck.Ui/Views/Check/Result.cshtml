@@ -15,6 +15,14 @@
 <h3>Next Steps</h3>
 @if (Model.Result.Status == MotStatus.Valid)
 {
-    <a asp-action="register" asp-controller="reminders" asp-route-registration="@Model.Result.Registration" asp-route-motExpiryDate="@Model.Result.MotExpiryDate.ToString("s")" class="btn btn-lg btn-block btn-primary">Register for an MOT reminder</a>
+    <a asp-action="index"
+       asp-controller="signup"
+       asp-route-registration="@Model.Result.Registration"
+       asp-route-manufacturer="@Model.Result.Manufacturer"
+       asp-route-model="@Model.Result.Model"
+       asp-route-motExpiryDate="@Model.Result.MotExpiryDate.ToString("s")"
+       class="btn btn-lg btn-block btn-primary">
+        Sign up for an MOT reminder
+    </a>
 }
 <a class="btn btn-lg btn-block btn-outline-secondary" asp-action="index" asp-controller="home">Check another vehicle</a>
