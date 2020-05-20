@@ -1,8 +1,6 @@
 ﻿using Cooper.MotCheck.Models;
 using Cooper.MotCheck.Models.Enumeration;
 using System;
-using System.Linq;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 namespace Cooper.MotCheck.Services.Implementation
@@ -17,13 +15,19 @@ namespace Cooper.MotCheck.Services.Implementation
                 var flag = registration.Substring(0, 1);
 
                 if (string.Compare(flag, "E", StringComparison.OrdinalIgnoreCase) == 0)
+                {
                     return ExpiredResponse(registration);
+                }
 
                 if (string.Compare(flag, "R", StringComparison.OrdinalIgnoreCase) == 0)
+                {
                     return NotRequiredResponse(registration);
+                }
 
                 if (string.Compare(flag, "F", StringComparison.OrdinalIgnoreCase) == 0)
+                {
                     return NotFoundResponse(registration);
+                }
 
                 return ValidResponse(registration);
             }

@@ -21,7 +21,7 @@ namespace Cooper.MotCheck.Services.Implementation
 
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue(
-                "basic", 
+                "basic",
                 Convert.ToBase64String(Encoding.ASCII.GetBytes($"{clientId}:{clientSecret}"))
             );
             return httpClient.PostAsync(tokenProviderUri, content, CancellationToken.None);

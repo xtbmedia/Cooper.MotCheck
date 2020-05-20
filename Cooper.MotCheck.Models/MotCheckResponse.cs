@@ -1,7 +1,6 @@
 ﻿using Cooper.MotCheck.Models.Enumeration;
 using System;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 
 namespace Cooper.MotCheck.Models
 {

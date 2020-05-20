@@ -15,10 +15,12 @@ namespace Cooper.MotCheck.Ui.Models
             this.motCheckService = motCheckService;
         }
 
-        public async Task< IActionResult> Result(MotCheckRequest model)
+        public async Task<IActionResult> Result(MotCheckRequest model)
         {
             if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
+            }
 
             var status = await motCheckService.CheckVehicleMot(model.Registration);
             var viewModel = new CheckResultViewModel

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Cooper.MotCheck.Services
+﻿namespace Cooper.MotCheck.Services
 {
     public interface IServiceAuthenticationProvider
     {

@@ -3,8 +3,6 @@ using Cooper.MotCheck.Models;
 using Cooper.MotCheck.Models.Enumeration;
 using Cooper.MotCheck.Services.Dto;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Cooper.MotCheck.Services.Implementation.Mappers
 {
