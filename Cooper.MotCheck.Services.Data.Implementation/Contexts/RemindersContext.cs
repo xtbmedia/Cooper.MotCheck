@@ -1,5 +1,6 @@
 ﻿using Cooper.MotCheck.Services.Data.Implementation.TableModels;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,9 +11,9 @@ namespace Cooper.MotCheck.Services.Data.Implementation.Contexts
     {
         private string connectionString;
 
-        public RemindersContext()
+        public RemindersContext(IConfiguration configuration)
         {
-            connectionString = "Server=(localdb)\\MSSQLLocalDb;Database=MotReminders;Trusted_Connection=yes;";
+            connectionString = configuration["DbConnectionString"];
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
