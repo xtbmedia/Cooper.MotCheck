@@ -38,6 +38,7 @@ namespace Cooper.MotCheck.Ui
             services.AddSingleton<MotCheckServiceMapper>();
             services.AddTransient<IReminderService, ReminderService>();
             services.AddTransient<RemindersContext>();
+            services.AddApplicationInsightsTelemetry();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
