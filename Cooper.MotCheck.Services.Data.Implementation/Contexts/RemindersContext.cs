@@ -13,7 +13,7 @@ namespace Cooper.MotCheck.Services.Data.Implementation.Contexts
 
         public RemindersContext(IConfiguration configuration)
         {
-            connectionString = configuration["AppSettings:DbConnectionString"];
+            connectionString = configuration.GetConnectionString("motcheck-data");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
