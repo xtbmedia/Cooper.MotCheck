@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cooper.MotCheck.Services.Im
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Cooper.MotCheck.DataStore", "Cooper.MotCheck.DataStore\Cooper.MotCheck.DataStore.sqlproj", "{69136399-727D-4DE7-837A-9B012C5815E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cooper.MotCheck.Services.Data.Implementation", "Cooper.MotCheck.Services.Data.Implementation\Cooper.MotCheck.Services.Data.Implementation.csproj", "{0FE7F691-1DFA-450C-9601-DF77339F3983}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cooper.MotCheck.Services.Data.Implementation", "Cooper.MotCheck.Services.Data.Implementation\Cooper.MotCheck.Services.Data.Implementation.csproj", "{0FE7F691-1DFA-450C-9601-DF77339F3983}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,8 +41,6 @@ Global
 		{69136399-727D-4DE7-837A-9B012C5815E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69136399-727D-4DE7-837A-9B012C5815E5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{69136399-727D-4DE7-837A-9B012C5815E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{69136399-727D-4DE7-837A-9B012C5815E5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{69136399-727D-4DE7-837A-9B012C5815E5}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{0FE7F691-1DFA-450C-9601-DF77339F3983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0FE7F691-1DFA-450C-9601-DF77339F3983}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FE7F691-1DFA-450C-9601-DF77339F3983}.Release|Any CPU.ActiveCfg = Release|Any CPU
